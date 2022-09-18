@@ -55,7 +55,6 @@
 
 
     <!-- === Tailwind CSS (https://tailwindcss.com/docs/customizing-colors#) === -->
-    <link rel="stylesheet" href="indexOutput.css">
     <!-- <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -83,6 +82,7 @@
 
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Customization ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
+    <link rel="stylesheet" href="indexOutput.css">
 
 
     <!-- === JavaScript === -->
@@ -99,8 +99,9 @@
 
     <!-- === CSS === -->
     <!-- <style>
-
+        
     </style> -->
+
 
 </head>
 
@@ -113,8 +114,12 @@
 
     <div class="flex items-center justify-center alertIcon">
         <!-- <img src="http://cdn.astrago.de/images/school/Gaida_HD_-_Trans.png" alt="Portrait von Daniel Gaida" class="alertIcon" width="300"> -->
-        <img height="5000px" width="300" src="https://thestickmanconsultancy.co.uk/wp-content/uploads/2020/02/Stickman-Character_1-Pink.png" alt="Portrait von einem Strichmännchen" class="alertIcon">
+        <!-- <img height="5000px" width="300" src="https://thestickmanconsultancy.co.uk/wp-content/uploads/2020/02/Stickman-Character_1-Pink.png" alt="Portrait von einem Strichmännchen" class="alertIcon"> -->
     </div>
+
+    <?php
+    phpinfo();
+    ?>
 
 </body>
 

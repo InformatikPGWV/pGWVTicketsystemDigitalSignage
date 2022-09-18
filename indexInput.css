@@ -46,6 +46,10 @@
   }
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .alertIcon {
   animation: blink 1.5s infinite;
 }
