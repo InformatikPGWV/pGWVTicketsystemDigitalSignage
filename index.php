@@ -108,7 +108,7 @@
 <body class="font-sans">
 
     <!-- NAVBAR -->
-    <div class="header text-5xl font-bold text-white bg-red-600 pl-5 pt-3 pb-5">
+    <div class="header text-4xl font-bold text-white bg-red-600 pl-5 pt-3 pb-5">
         <h1>PGWV Fehlersystem</h1>
     </div>
 
