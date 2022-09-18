@@ -32,7 +32,7 @@
 
 
     <!-- = THEME = -->
-    <meta name="theme-color" content="#16a34a" />
+    <!-- <meta name="theme-color" content="#16a34a" /> -->
 
 
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ JavaScript Frameworks ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
