@@ -15,17 +15,17 @@
     <!-- === Meta Tags for Social Media and SEO === -->
     <!-- = Info: https://ogp.me/#types = -->
     <!-- = GENERAL = -->
-    <meta property="og:site_name" content="TEMPLATE" />
+    <!-- <meta property="og:site_name" content="TEMPLATE" />
     <meta property="og:title" content="TEMPLATE" />
     <meta property="og:description" content="TEMPLATE" />
     <meta property="og:type" content="TEMPLATE" />
     <meta property="og:url" content="TEMPLATE" />
-    <meta property="og:image" content="TEMPLATE" />
+    <meta property="og:image" content="TEMPLATE" /> -->
     <!-- = TWITTER = -->
-    <meta name="twitter:title" content="TEMPLATE" />
+    <!-- <meta name="twitter:title" content="TEMPLATE" />
     <meta name="twitter:description" content="TEMPLATE" />
     <meta name="twitter:image" content="TEMPLATE" />
-    <meta name="twitter:card" content="TEMPLATE" />
+    <meta name="twitter:card" content="TEMPLATE" /> -->
 
 
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Design ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -91,10 +91,10 @@
             // jQuery methods go here...
         });
 
-        window.scrollTo({
-            top: 500,
-            behavior: "smooth"
-        });
+        // window.scrollTo({
+        //     top: 500,
+        //     behavior: "smooth"
+        // });
     </script>
 
     <!-- === CSS === -->
