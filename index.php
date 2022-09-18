@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>TEMPLATE</title>
+    <title>PGWV Fehlersystem</title>
 
 
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Open Graph & Social Media Tags ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -55,17 +55,19 @@
 
 
     <!-- === Tailwind CSS (https://tailwindcss.com/docs/customizing-colors#) === -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="indexOutput.css">
+    <!-- <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             corePlugins: {
                 preflight: true,
             },
         }
-    </script>
+    </script> -->
 
 
     <!-- === DaisyUI (https://daisyui.com/components) === -->
+    <!-- Added Via Tailwind -->
     <!-- <link href="https://cdn.jsdelivr.net/npm/daisyui@2.17.0/dist/full.css" rel="stylesheet" type="text/css" /> -->
 
 
@@ -84,13 +86,16 @@
 
 
     <!-- === JavaScript === -->
-    <!-- <script>
-        // $(document).ready(function () {
-        //     // jQuery methods go here...
-        // });
+    <script>
+        $(document).ready(function() {
+            // jQuery methods go here...
+        });
 
-    </script> -->
-
+        window.scrollTo({
+            top: 500,
+            behavior: "smooth"
+        });
+    </script>
 
     <!-- === CSS === -->
     <!-- <style>
@@ -101,10 +106,15 @@
 
 <body class="font-sans">
 
+    <!-- NAVBAR -->
     <div class="header text-5xl font-bold text-white bg-red-600 pl-5 pt-3 pb-5">
         <h1>PGWV Fehlersystem</h1>
     </div>
 
+    <div class="flex items-center justify-center alertIcon">
+        <!-- <img src="http://cdn.astrago.de/images/school/Gaida_HD_-_Trans.png" alt="Portrait von Daniel Gaida" class="alertIcon" width="300"> -->
+        <img height="5000px" width="300" src="https://thestickmanconsultancy.co.uk/wp-content/uploads/2020/02/Stickman-Character_1-Pink.png" alt="Portrait von einem Strichmännchen" class="alertIcon">
+    </div>
 
 </body>
 

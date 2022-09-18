@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes blink {
+  0% {
+    opacity: 100;
+    rotation-point: 50% 50%;
+    transform: rotate(0deg);
+  }
+
+  20% {
+    opacity: 100;
+    rotation-point: 50% 50%;
+    transform: rotate(0deg);
+  }
+
+  30% {
+    opacity: 100;
+    rotation-point: 50% 50%;
+    transform: rotate(20deg);
+  }
+
+  50% {
+    opacity: 100;
+    rotation-point: 50% 50%;
+    transform: rotate(-20deg);
+  }
+
+  60% {
+    opacity: 100;
+    rotation-point: 50% 50%;
+    transform: rotate(0deg);
+  }
+
+  /* 80% {
+    opacity: 100;
+    rotation-point: 50% 50%;
+    transform: rotate(0deg);
+    } */
+
+  100% {
+    opacity: 100;
+    rotation-point: 50% 50%;
+    transform: rotate(0deg);
+  }
+}
+
+.alertIcon {
+  animation: blink 1.5s infinite;
+}
