@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="de" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -102,6 +102,10 @@
         
     </style> -->
 
+    <?php
+    $conn = mysqli_connect('5.182.206.4', 'Justus', 'oNvNOsDT)19Mpx-m', 'fehlersystem');
+    ?>
+
 
 </head>
 
@@ -124,7 +128,6 @@
         </thead>
         <tbody id="problemTable">
             <?php
-            require_once("./db.php");
 
             $sql = "SELECT * FROM problems WHERE 'status' != 'gelöst' AND 'status' != 'spam' ORDER BY raum ASC";
             $stmt = $conn->prepare($sql);
