@@ -103,7 +103,7 @@
     </style> -->
 
     <!-- === RELOAD === -->
-    <meta http-equiv="refresh" content="10; url=#">
+    <meta http-equiv="refresh" content="1; url=#">
 
     <!-- === PHP === -->
     <?php
@@ -126,7 +126,7 @@
 
     <!-- NAVBAR -->
     <div class="text-4xl font-bold text-white bg-red-600 pl-5 pt-3 pb-5 ">
-        <h1>PGWV Fehlersystem: <?php echo $fehlerzahl ?> Fehler
+        <h1 style="width: 100vw;">PGWV Fehlersystem <span class="inlineRight mr-4"><?php echo $fehlerzahl ?> Fehler</span>
         </h1>
     </div>
 
@@ -165,7 +165,10 @@
 
     <!-- ================================================================================================================== -->
 
-
+    <!-- TODO:
+    - Clip Text when it is too long
+    - make table responsive
+-->
 
 </body>
 

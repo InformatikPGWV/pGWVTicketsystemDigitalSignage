@@ -53,3 +53,13 @@ body {
 .alertIcon {
   animation: blink 1.5s infinite;
 }
+
+.inlineLeft,
+.inlineRight {
+  position: absolute;
+  display: inline;
+}
+
+.inlineRight {
+  right: 0;
+}
