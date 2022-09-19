@@ -86,24 +86,37 @@
 
 
     <!-- === JavaScript === -->
-    <script>
-        $(document).ready(function() {
-            // jQuery methods go here...
-        });
+    <!-- <script>
+        // $(document).ready(function() {
+        //     // jQuery methods go here...
+        // });
 
         // window.scrollTo({
         //     top: 500,
         //     behavior: "smooth"
         // });
-    </script>
+    </script> -->
 
     <!-- === CSS === -->
     <!-- <style>
         
     </style> -->
 
+    <!-- === RELOAD === -->
+    <meta http-equiv="refresh" content="10; url=#">
+
+    <!-- === PHP === -->
     <?php
+    // Lade Daten aus der Datenbank herunter
     $conn = mysqli_connect('5.182.206.4', 'Justus', 'oNvNOsDT)19Mpx-m', 'fehlersystem');
+
+    $sql = "SELECT * FROM problems WHERE 'status' != 'gelöst' AND 'status' != 'spam' ORDER BY raum ASC";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    // Speichere Anzahl der Fehler
+    $fehlerzahl = $result->num_rows;
     ?>
 
 
@@ -112,15 +125,17 @@
 <body class="font-sans">
 
     <!-- NAVBAR -->
-    <div class="header text-4xl font-bold text-white bg-red-600 pl-5 pt-3 pb-5">
-        <h1>PGWV Fehlersystem</h1>
+    <div class="text-4xl font-bold text-white bg-red-600 pl-5 pt-3 pb-5 ">
+        <h1>PGWV Fehlersystem: <?php echo $fehlerzahl ?> Fehler
+        </h1>
     </div>
 
+    <!-- TABELLE -->
     <table class="table">
         <thead>
             <tr>
                 <th class="text-center" style="width: 7.5%;">Raum</th>
-                <th class="text-center fehlerCell">Fehler</th>
+                <th class="text-center">Fehler</th>
                 <th class="text-center" style="width: 22.5%;">Status</th>
                 <th class="text-center" style="width: 12.5%;">Melder</th>
                 <th class="text-center" style="width: 15%;">Datum</th>
@@ -128,11 +143,6 @@
         </thead>
         <tbody id="problemTable">
             <?php
-
-            $sql = "SELECT * FROM problems WHERE 'status' != 'gelöst' AND 'status' != 'spam' ORDER BY raum ASC";
-            $stmt = $conn->prepare($sql);
-            $stmt->execute();
-            $result = $stmt->get_result();
             while ($problem = $result->fetch_assoc()) {
             ?>
                 <tr>
@@ -148,6 +158,14 @@
             ?>
         </tbody>
     </table>
+
+
+
+
+
+    <!-- ================================================================================================================== -->
+
+
 
 </body>
 
