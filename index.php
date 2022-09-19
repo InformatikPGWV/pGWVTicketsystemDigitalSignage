@@ -103,7 +103,7 @@
     </style> -->
 
     <!-- === RELOAD === -->
-    <meta http-equiv="refresh" content="1; url=#">
+    <meta http-equiv="refresh" content="10; url=#">
 
     <!-- === PHP === -->
     <?php
