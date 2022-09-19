@@ -112,14 +112,39 @@
         <h1>PGWV Fehlersystem</h1>
     </div>
 
-    <div class="flex items-center justify-center alertIcon">
-        <!-- <img src="http://cdn.astrago.de/images/school/Gaida_HD_-_Trans.png" alt="Portrait von Daniel Gaida" class="alertIcon" width="300"> -->
-        <!-- <img height="5000px" width="300" src="https://thestickmanconsultancy.co.uk/wp-content/uploads/2020/02/Stickman-Character_1-Pink.png" alt="Portrait von einem Strichmännchen" class="alertIcon"> -->
-    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="text-center" style="width: 7.5%;">Raum</th>
+                <th class="text-center fehlerCell">Fehler</th>
+                <th class="text-center" style="width: 22.5%;">Status</th>
+                <th class="text-center" style="width: 12.5%;">Melder</th>
+                <th class="text-center" style="width: 15%;">Datum</th>
+            </tr>
+        </thead>
+        <tbody id="problemTable">
+            <?php
+            require_once("./db.php");
 
-    <?php
-    phpinfo();
-    ?>
+            $sql = "SELECT * FROM problems WHERE 'status' != 'gelöst' AND 'status' != 'spam' ORDER BY raum ASC";
+            $stmt = $conn->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            while ($problem = $result->fetch_assoc()) {
+            ?>
+                <tr>
+                    <td class="text-center"><?php echo $problem['raum']; ?></td>
+                    <td class="text-center"><b><?php echo $problem['kategorie']; ?></b> <br> <?php echo $problem['problembeschreibung']; ?></td>
+                    <td class="text-center"><?php echo $problem['status']; ?><br></td>
+                    <td class="text-center"><?php echo $problem['melder']; ?></td>
+                    <td class="text-center"><?php echo $problem['datum']; ?></td>
+                </tr>
+
+            <?php
+            } // DB  LOOP
+            ?>
+        </tbody>
+    </table>
 
 </body>
 
