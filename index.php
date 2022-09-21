@@ -2,11 +2,30 @@
 <html lang="de" data-theme="light">
 
 <head>
+
+
+
+    <!--
+     █████   ██████ ██   ██ ████████ ██    ██ ███    ██  ██████  ██ 
+    ██   ██ ██      ██   ██    ██    ██    ██ ████   ██ ██       ██ 
+    ███████ ██      ███████    ██    ██    ██ ██ ██  ██ ██   ███ ██ 
+    ██   ██ ██      ██   ██    ██    ██    ██ ██  ██ ██ ██    ██    
+    ██   ██  ██████ ██   ██    ██     ██████  ██   ████  ██████  ██  
+    ===============================================================
+    
+    BEIM VERÄNDERN DER FENSTERGRÖßE WEBSEITE RELOADEN!
+    NICHT MEHR ALS 110% ZOOMEN, SONST FUNKTIONIERT DAS NICHT MEHR!
+
+-->
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>PGWV Fehlersystem</title>
+
+    <!-- === JQuery (https://releases.jquery.com) === -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <!-- === CSS === -->
     <!-- <style>
@@ -30,7 +49,6 @@
     $fehlerzahl = $result->num_rows;
     ?>
 
-
 </head>
 
 <body class="font-sans">
@@ -41,8 +59,11 @@
         </h1>
     </div>
 
+    <!-- Dummy Element für Abstand -->
+    <h1 class="pt-20"></h1>
+
     <!-- TABELLE -->
-    <table class="table mt-20 w-full z-1">
+    <table class="table w-full z-1">
         <thead>
             <tr>
                 <th class="text-center z-1" style="width: 7.5%; max-width: 7.5%;">Raum</th>
@@ -59,7 +80,7 @@
             ?>
                 <tr id="<?php echo $currentId; ?>">
                     <td class="text-center"><?php echo $problem['raum']; ?></td>
-                    <td class="text-center"><b><?php echo $problem['kategorie']; ?></b> <br> <?php echo substr($problem['problembeschreibung'], 0, 100); ?></td>
+                    <td class="text-center"><b><?php echo $problem['kategorie']; ?></b> <br> <?php echo substr($problem['problembeschreibung'], 0, 140); ?></td>
                     <td class="text-center"><?php echo $problem['status']; ?><br></td>
                     <!-- <td class="text-center"><?php //echo $problem['melder']; S
                                                     ?></td> -->
@@ -73,70 +94,69 @@
         </tbody>
     </table>
 
-
-    <!-- ================================================================================================================== -->
-
-    <!-- TODO:
-    - Clip Text if it is too long
-    - make table responsive
--->
-
-
     <!-- === JavaScript === -->
     <script>
-        // $(document).ready(function() {
-        //     // jQuery methods go here...
-        // });
+        $(document).ready(function() {
 
+            var isNotScrolling = true;
+            var ort = 0
 
+            // ======================================================================================
 
-        var isNotScrolling = true;
-        var ort = 0
-
-        // ======================================================================================
-
-        function scrollDone() {
-            setTimeout(() => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
-                });
-            }, 5000);
-            setTimeout(() => {
-                window.location.reload();
-            }, 6000);
-        }
-
-        function scrollDownUntilEndOfPage() {
-            if (isNotScrolling) {
-                scrollDone();
-                return
-            } else {
+            function scrollDone() {
+                // alert("Scroll Done")
                 setTimeout(() => {
-                    ort += 1
                     window.scrollTo({
-                        top: ort,
-                        behavior: "auto"
+                        top: 0,
+                        behavior: "smooth"
                     });
-                    scrollDownUntilEndOfPage();
-                }, 12);
+                }, 5000);
+                setTimeout(() => {
+                    window.location.reload();
+                }, 6000);
             }
 
-        }
+            function scrollDownUntilEndOfPage() {
+                if (isNotScrolling) {
+                    scrollDone();
+                    return
+                } else {
+                    setTimeout(() => {
+                        ort += 1
+                        window.scrollTo({
+                            top: ort,
+                            behavior: "auto"
+                        });
+                        scrollDownUntilEndOfPage();
+                    }, 12);
+                }
 
-        window.onscroll = function() {
-            if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
-                isNotScrolling = true;
-                // alert("At the bottom!")
             }
-        }
 
-        // ======================================================================================
+            // REAGIERT NUR, WENN WIRKLICh GESCROLLT WIRD
+            // TODO: Check einbauen, der reload triggert, auch wenn die seite nicht gescrollt wird
+            window.onscroll = function() {
+                if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+                    isNotScrolling = true;
+                    // alert("At the bottom!")
+                }
+            }
 
-        setTimeout(() => {
-            isNotScrolling = false;
-            scrollDownUntilEndOfPage();
-        }, 5000);
+            // Check if there is no scroll bar
+            // SOURCE: https://stackoverflow.com/a/2146903 
+            if ($("body").height() <= $(window).height()) {
+                // alert("NO Vertical Scrollbar! D:");
+                scrollDone();
+            }
+
+
+            // ======================================================================================
+
+            setTimeout(() => {
+                isNotScrolling = false;
+                scrollDownUntilEndOfPage();
+            }, 5000);
+        });
     </script>
 
 </body>
