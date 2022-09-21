@@ -130,19 +130,20 @@
         </thead>
         <tbody id="problemTable">
             <?php
-            $current = 0;
+            $currentId = 0;
             while ($problem = $result->fetch_assoc()) {
             ?>
-                <tr id="<?php echo $current; ?>">
+                <tr id="<?php echo $currentId; ?>">
                     <td class="text-center"><?php echo $problem['raum']; ?></td>
                     <td class="text-center"><b><?php echo $problem['kategorie']; ?></b> <br> <?php echo $problem['problembeschreibung']; ?></td>
                     <td class="text-center"><?php echo $problem['status']; ?><br></td>
-                    <!-- <td class="text-center"><?php //echo $problem['melder']; ?></td> -->
+                    <!-- <td class="text-center"><?php //echo $problem['melder']; 
+                                                    ?></td> -->
                     <td class="text-center"><?php echo $problem['datum']; ?></td>
                 </tr>
 
             <?php
-            $current += 1;
+                $currentId += 1;
             } // DB  LOOP 
             ?>
         </tbody>
@@ -161,30 +162,63 @@
 
 
     <!-- === JavaScript === -->
-    <!-- <script>
+    <script>
         // $(document).ready(function() {
         //     // jQuery methods go here...
         // });
 
-        var isUnten = false;
 
+
+        var isNotScrolling = true;
         var ort = 0
-        while (!isUnten){
+
+        // ======================================================================================
+
+        function scrollDone() {
+
             setTimeout(() => {
-            ort += 50
-            window.scrollTo({
-            top: 100,
-            behavior: "smooth"
-            });
-        }, 1000);
+                // Mach was
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            }, 5000);
+            setTimeout(() => {
+                window.location.reload();
+            }, 6000);
+        }
+
+        function scrollDownUntilEndOfPage() {
+            if (isNotScrolling) {
+                scrollDone();
+                return
+            } else {
+                setTimeout(() => {
+                    ort += 1
+                    window.scrollTo({
+                        top: ort,
+                        behavior: "auto"
+                    });
+                    scrollDownUntilEndOfPage();
+                }, 12);
+            }
+
         }
 
         window.onscroll = function() {
             if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
-                alert("At the bottom!")
+                isNotScrolling = true;
+                // alert("At the bottom!")
             }
         }
-    </script> -->
+
+        // ======================================================================================
+
+        setTimeout(() => {
+            isNotScrolling = false;
+            scrollDownUntilEndOfPage();
+        }, 5000);
+    </script>
 
 </body>
 
