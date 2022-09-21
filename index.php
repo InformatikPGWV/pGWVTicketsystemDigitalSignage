@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="de" data-theme="light">
+<html lang="de" data-theme="dark">
+<!-- <html lang="de" data-theme="light"> -->
 
 <head>
 
@@ -14,7 +15,7 @@
     ===============================================================
     
     BEIM VERÄNDERN DER FENSTERGRÖßE WEBSEITE RELOADEN!
-    NICHT MEHR ALS 110% ZOOMEN, SONST FUNKTIONIERT DAS NICHT MEHR!
+    NICHT MEHR ALS 110% ZOOMEN, SONST FUNKTIONIERT DAS HIER NICHT MEHR!
 
 -->
 
@@ -80,7 +81,7 @@
             ?>
                 <tr id="<?php echo $currentId; ?>">
                     <td class="text-center"><?php echo $problem['raum']; ?></td>
-                    <td class="text-center"><b><?php echo $problem['kategorie']; ?></b> <br> <?php echo substr($problem['problembeschreibung'], 0, 140); ?></td>
+                    <td class="text-center"><b><?php echo $problem['kategorie']; ?></b> <br> <?php echo substr($problem['problembeschreibung'], 0, 100); ?></td>
                     <td class="text-center"><?php echo $problem['status']; ?><br></td>
                     <!-- <td class="text-center"><?php //echo $problem['melder']; S
                                                     ?></td> -->
