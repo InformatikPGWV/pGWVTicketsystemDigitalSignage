@@ -56,7 +56,7 @@
 
     <!-- NAVBAR -->
     <div class="sticky z-50 text-4xl font-bold text-white bg-red-600 pl-5 pt-3 pb-5">
-        <h1 style="width: 100vw;">PGWV Fehlersystem <span class="inlineRight mr-16"><?php echo $fehlerzahl ?> Fehler</span>
+        <h1 style="width: 100vw;">Das PGWV Fehlersystem (Es ist sehr gut!)<span class="inlineRight mr-16"><?php echo $fehlerzahl ?> Fehler</span>
         </h1>
     </div>
 
