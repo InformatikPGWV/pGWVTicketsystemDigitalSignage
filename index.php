@@ -84,26 +84,13 @@
 
     <link rel="stylesheet" href="indexOutput.css">
 
-
-    <!-- === JavaScript === -->
-    <!-- <script>
-        // $(document).ready(function() {
-        //     // jQuery methods go here...
-        // });
-
-        // window.scrollTo({
-        //     top: 500,
-        //     behavior: "smooth"
-        // });
-    </script> -->
-
     <!-- === CSS === -->
     <!-- <style>
         
     </style> -->
 
     <!-- === RELOAD === -->
-    <meta http-equiv="refresh" content="10; url=#">
+    <!-- <meta http-equiv="refresh" content="10; url=#"> -->
 
     <!-- === PHP === -->
     <?php
@@ -135,26 +122,28 @@
         <thead>
             <tr>
                 <th class="text-center" style="width: 7.5%;">Raum</th>
-                <th class="text-center">Fehler</th>
+                <th class="text-center" style="width: 55%">Fehler</th>
                 <th class="text-center" style="width: 22.5%;">Status</th>
-                <th class="text-center" style="width: 12.5%;">Melder</th>
+                <!-- <th class="text-center" style="width: 12.5%;">Melder</th> -->
                 <th class="text-center" style="width: 15%;">Datum</th>
             </tr>
         </thead>
         <tbody id="problemTable">
             <?php
+            $current = 0;
             while ($problem = $result->fetch_assoc()) {
             ?>
-                <tr>
+                <tr id="<?php echo $current; ?>">
                     <td class="text-center"><?php echo $problem['raum']; ?></td>
                     <td class="text-center"><b><?php echo $problem['kategorie']; ?></b> <br> <?php echo $problem['problembeschreibung']; ?></td>
                     <td class="text-center"><?php echo $problem['status']; ?><br></td>
-                    <td class="text-center"><?php echo $problem['melder']; ?></td>
+                    <!-- <td class="text-center"><?php //echo $problem['melder']; ?></td> -->
                     <td class="text-center"><?php echo $problem['datum']; ?></td>
                 </tr>
 
             <?php
-            } // DB  LOOP
+            $current += 1;
+            } // DB  LOOP 
             ?>
         </tbody>
     </table>
@@ -166,9 +155,36 @@
     <!-- ================================================================================================================== -->
 
     <!-- TODO:
-    - Clip Text when it is too long
+    - Clip Text if it is too long
     - make table responsive
 -->
+
+
+    <!-- === JavaScript === -->
+    <!-- <script>
+        // $(document).ready(function() {
+        //     // jQuery methods go here...
+        // });
+
+        var isUnten = false;
+
+        var ort = 0
+        while (!isUnten){
+            setTimeout(() => {
+            ort += 50
+            window.scrollTo({
+            top: 100,
+            behavior: "smooth"
+            });
+        }, 1000);
+        }
+
+        window.onscroll = function() {
+            if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+                alert("At the bottom!")
+            }
+        }
+    </script> -->
 
 </body>
 
