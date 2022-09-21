@@ -83,7 +83,7 @@
 
 
     <!-- === JavaScript === -->
-    <!-- <script>
+    <script>
         // $(document).ready(function() {
         //     // jQuery methods go here...
         // });
@@ -137,7 +137,7 @@
             isNotScrolling = false;
             scrollDownUntilEndOfPage();
         }, 5000);
-    </script> -->
+    </script>
 
 </body>
 
