@@ -39,7 +39,7 @@
     // Lade Daten aus der Datenbank herunter
     $conn = mysqli_connect('5.182.206.4', 'Justus', 'oNvNOsDT)19Mpx-m', 'fehlersystem');
 
-    $sql = "SELECT * FROM problems WHERE 'status' != 'gelöst' AND 'status' != 'spam' ORDER BY raum ASC";
+    $sql = "SELECT * FROM problems WHERE 'status' != 'Gelöst' AND 'status' != 'Spam' ORDER BY raum ASC";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -95,7 +95,7 @@
     <!-- Footer -->
     <footer>
         <div class="bg-gradient-to-r from-slate-300 to-gray-300 text-s mt-1 p-2 w-full text-center">
-            <p>Version: Beta 1.0.0 (2022-09-22)</h1>
+            <p>Version: Beta 1.0.0 (<?php echo "Letzte Aktualisierung: " . date("d.m.Y H:i:s", filemtime("index.php")); ?>)</h1>
             <p>&#169; 2022 Justus Seeck & Joel Wiedemeier (Jahrgang 12, PGWV)</h1>
         </div>
     </footer>
