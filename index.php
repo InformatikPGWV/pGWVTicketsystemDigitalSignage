@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="de" data-theme="dark">
-<!-- <html lang="de" data-theme="light"> -->
+<!-- <html lang="de" data-theme="dark"> -->
+<html lang="de" data-theme="light">
 
 <head>
 
@@ -53,8 +53,8 @@
 <body class="font-sans">
 
     <!-- NAVBAR -->
-    <div class="sticky z-50 text-4xl font-bold text-white bg-red-600 pl-5 pt-3 pb-5">
-        <h1 style="width: 100vw;">Das PGWV Fehlersystem (Es ist sehr gut!)<span class="inlineRight mr-16"><?php echo $fehlerzahl ?> Fehler</span>
+    <div class="sticky z-50 text-4xl text-white pl-5 pt-3 pb-5 bg-gradient-to-r from-red-600 to-red-600">
+        <h1 style="width: 100vw;"><b>PGWV Fehlersystem</b><span class="inlineRight font-bold mr-8"><?php echo $fehlerzahl ?> Fehler</span>
         </h1>
     </div>
 
@@ -77,7 +77,7 @@
             $currentId = 0;
             while ($problem = $result->fetch_assoc()) {
             ?>
-                <tr id="<?php echo $currentId; ?>">
+                <tr>
                     <td class="text-center"><?php echo $problem['raum']; ?></td>
                     <td class="text-center"><b><?php echo $problem['kategorie']; ?></b> <br> <?php echo substr($problem['problembeschreibung'], 0, 100); ?></td>
                     <td class="text-center"><?php echo $problem['status']; ?><br></td>
@@ -85,7 +85,6 @@
                                                     ?></td> -->
                     <td class="text-center"><?php echo $problem['datum']; ?></td>
                 </tr>
-
             <?php
                 $currentId += 1;
             } // DB  LOOP 
@@ -93,69 +92,82 @@
         </tbody>
     </table>
 
+    <!-- Footer -->
+    <footer>
+        <div class="bg-gradient-to-r from-cyan-500 to-blue-500 text-s mt-1 p-2 w-full text-center">
+            <p>Version: Beta 1.0.0 (2022-09-22)</h1>
+            <p>&#169; 2022 Justus Seeck & Joel Wiedemeier (Jahrgang 12, PGWV)</h1>
+        </div>
+    </footer>
+
+    <!-- ============================================================================================================================================== -->
+
     <!-- === JavaScript === -->
     <script>
-        $(document).ready(function() {
+        // CONFIGURATION:
+        let enableScrolling = true;
 
-            var isNotScrolling = true;
-            var ort = 0
+        if (enableScrolling) {
+            $(document).ready(function() {
 
-            // ======================================================================================
+                var isNotScrolling = true;
+                var ort = 0
 
-            function scrollDone() {
-                // alert("Scroll Done")
-                setTimeout(() => {
-                    window.scrollTo({
-                        top: 0,
-                        behavior: "smooth"
-                    });
-                }, 5000);
-                setTimeout(() => {
-                    window.location.reload();
-                }, 6000);
-            }
-
-            function scrollDownUntilEndOfPage() {
-                if (isNotScrolling) {
-                    scrollDone();
-                    return
-                } else {
+                function scrollDone() {
+                    // alert("Scroll Done")
                     setTimeout(() => {
-                        ort += 1
                         window.scrollTo({
-                            top: ort,
-                            behavior: "auto"
+                            top: 0,
+                            behavior: "smooth"
                         });
-                        scrollDownUntilEndOfPage();
-                    }, 12);
+                    }, 5000);
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 6000);
                 }
 
-            }
+                function scrollDownUntilEndOfPage() {
+                    if (isNotScrolling) {
+                        scrollDone();
+                        return
+                    } else {
+                        setTimeout(() => {
+                            ort += 1
+                            window.scrollTo({
+                                top: ort,
+                                behavior: "auto"
+                            });
+                            scrollDownUntilEndOfPage();
+                        }, 12);
+                    }
 
-            // REAGIERT NUR, WENN WIRKLICh GESCROLLT WIRD
-            // TODO: Check einbauen, der reload triggert, auch wenn die seite nicht gescrollt wird
-            window.onscroll = function() {
-                if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
-                    isNotScrolling = true;
-                    // alert("At the bottom!")
                 }
-            }
 
-            // Check if there is no scroll bar
-            // SOURCE: https://stackoverflow.com/a/2146903 
-            if ($("body").height() <= $(window).height()) {
-                // alert("NO Vertical Scrollbar! D:");
-                scrollDone();
-            }
+                // REAGIERT NUR, WENN WIRKLICh GESCROLLT WIRD
+                // TODO: Check einbauen, der reload triggert, auch wenn die seite nicht gescrollt wird
+                window.onscroll = function() {
+                    if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+                        isNotScrolling = true;
+                        // alert("At the bottom!")
+                    }
+                }
+
+                // Check if there is no scroll bar
+                // SOURCE: https://stackoverflow.com/a/2146903 
+                if ($("body").height() <= $(window).height()) {
+                    // alert("NO Vertical Scrollbar! D:");
+                    scrollDone();
+                }
 
 
-            // ======================================================================================
+                // ======================================================================================
 
-            setTimeout(() => {
-                isNotScrolling = false;
-                scrollDownUntilEndOfPage();
-            }, 5000);
-        });
+                setTimeout(() => {
+                    isNotScrolling = false;
+                    scrollDownUntilEndOfPage();
+                }, 5000);
+            });
+        }
     </script>
 
 </body>
