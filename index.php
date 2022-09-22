@@ -25,13 +25,11 @@
 
     <title>PGWV Fehlersystem</title>
 
-    <!-- === JQuery (https://releases.jquery.com) === -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
     <!-- === CSS === -->
-    <!-- <style>
-        </style> -->
     <link rel="stylesheet" href="indexOutput.css">
+
+    <!-- === JQuery (https://releases.jquery.com) === -->
+    <script src="jQuery-3.6.6.js"></script>
 
     <!-- === RELOAD === -->
     <meta http-equiv="refresh" content="1800; url=#">
