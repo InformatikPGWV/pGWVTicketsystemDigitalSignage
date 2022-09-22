@@ -94,7 +94,7 @@
 
     <!-- Footer -->
     <footer>
-        <div class="bg-gradient-to-r from-cyan-500 to-blue-500 text-s mt-1 p-2 w-full text-center">
+        <div class="bg-gradient-to-r from-slate-300 to-gray-300 text-s mt-1 p-2 w-full text-center">
             <p>Version: Beta 1.0.0 (2022-09-22)</h1>
             <p>&#169; 2022 Justus Seeck & Joel Wiedemeier (Jahrgang 12, PGWV)</h1>
         </div>

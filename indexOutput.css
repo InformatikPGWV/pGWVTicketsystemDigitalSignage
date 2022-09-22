@@ -2780,6 +2780,18 @@ body[dir="rtl"] .checkbox:checked,
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-slate-400 {
+  --tw-gradient-from: #94a3b8;
+  --tw-gradient-to: rgb(148 163 184 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.from-slate-300 {
+  --tw-gradient-from: #cbd5e1;
+  --tw-gradient-to: rgb(203 213 225 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .to-blue-500 {
   --tw-gradient-to: #3b82f6;
 }
@@ -2798,6 +2810,14 @@ body[dir="rtl"] .checkbox:checked,
 
 .to-red-500 {
   --tw-gradient-to: #ef4444;
+}
+
+.to-gray-400 {
+  --tw-gradient-to: #9ca3af;
+}
+
+.to-gray-300 {
+  --tw-gradient-to: #d1d5db;
 }
 
 .p-2 {
