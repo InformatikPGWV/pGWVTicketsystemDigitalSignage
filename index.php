@@ -50,12 +50,11 @@
 
 </head>
 
-<body class="font-sans">
+<body class="font-sans min-h-screen">
 
     <!-- NAVBAR -->
-    <div class="sticky z-50 text-4xl text-white pl-5 pt-3 pb-5 bg-gradient-to-r from-red-600 to-red-600">
-        <h1 style="width: 100vw;"><b>PGWV Fehlersystem</b><span class="inlineRight font-bold mr-8"><?php echo $fehlerzahl ?> Fehler</span>
-        </h1>
+    <div class="fixed w-full top-0 left-0 z-50 text-4xl text-white pl-5 pt-3 pb-5 bg-gradient-to-r from-red-600 to-red-600">
+        <h1 style="width: 100vw;"><b>PGWV Fehlersystem</b><span class="inlineRight font-bold mr-8"><?php echo $fehlerzahl ?> Fehler</span></h1>
     </div>
 
     <!-- Dummy Element für Abstand -->
@@ -79,7 +78,7 @@
             ?>
                 <tr>
                     <td class="text-center"><?php echo $problem['raum']; ?></td>
-                    <td class="text-center"><b><?php echo $problem['kategorie']; ?></b> <br> <?php echo substr($problem['problembeschreibung'], 0, 100); ?></td>
+                    <td class="text-center"><b><?php echo $problem['kategorie']; ?></b> <br> <?php echo substr($problem['problembeschreibung'], 0, 130); ?></td>
                     <td class="text-center"><?php echo $problem['status']; ?><br></td>
                     <!-- <td class="text-center"><?php //echo $problem['melder']; S
                                                     ?></td> -->
@@ -92,20 +91,24 @@
         </tbody>
     </table>
 
+
     <!-- Footer -->
-    <footer>
-        <div class="bg-gradient-to-r from-slate-300 to-gray-300 text-s mt-1 p-2 w-full text-center">
-            <p>Version: Beta 1.0.0 (<?php echo "Letzte Aktualisierung: " . date("d.m.Y H:i:s", filemtime("index.php")); ?>)</h1>
-            <p>&#169; 2022 Justus Seeck & Joel Wiedemeier (Jahrgang 12, PGWV)</h1>
+    <footer class="fixed w-full bottom-0 left-0">
+        <div class="bg-gradient-to-r from-slate-300 to-gray-300 text-xs mt-1 p-2 w-full text-center">
+            <p class="inline">Version: Beta 1.0.1 (<?php echo "Letzte Aktualisierung: " . date("d.m.Y H:i:s", filemtime("index.php")); ?>)</h1>
+            <p class="inline"> | </h1>
+            <p class="inline">&#169; 2022 Justus Seeck & Joel Wiedemeier (Jahrgang 12, PGWV)</h1>
         </div>
     </footer>
+
+    <div class="py-3"></div>
 
     <!-- ============================================================================================================================================== -->
 
     <!-- === JavaScript === -->
     <script>
         // CONFIGURATION:
-        let enableScrolling = true;
+        let enableScrolling = false;
 
         if (enableScrolling) {
             $(document).ready(function() {

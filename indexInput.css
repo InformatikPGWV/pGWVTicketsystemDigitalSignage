@@ -64,12 +64,6 @@ body {
   right: 0;
 }
 
-.sticky {
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
 /* Hide scrollbar for Chrome, Safari and Opera */
 body::-webkit-scrollbar {
   display: none;
