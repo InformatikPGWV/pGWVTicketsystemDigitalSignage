@@ -108,7 +108,7 @@
     <!-- === JavaScript === -->
     <script>
         // CONFIGURATION:
-        let enableScrolling = false;
+        let enableScrolling = true;
 
         if (enableScrolling) {
             $(document).ready(function() {
