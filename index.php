@@ -36,8 +36,14 @@
 
     <!-- === PHP === -->
     <?php
+    // Install Dependencies: https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies
+
+    require "vendor/autoload.php";
+    $dotenv = Dotenv\Dotenv::createUnsafeImmutable(__DIR__);
+    $dotenv->load();
+
     // Lade Daten aus der Datenbank herunter
-    $conn = mysqli_connect('5.182.206.4', 'Justus', 'oNvNOsDT)19Mpx-m', 'fehlersystem');
+    $conn = mysqli_connect(getenv("TLIS1_HOSTNAME"), getenv("TLIS1_USERNAME"), getenv("TLIS1_PASSWORD"), getenv("TLIS1_DATABASE"));
 
     $sql = "SELECT * FROM problems WHERE 'status' != 'Gelöst' AND 'status' != 'Spam' ORDER BY raum ASC";
     $stmt = $conn->prepare($sql);
