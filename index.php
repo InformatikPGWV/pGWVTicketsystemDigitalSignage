@@ -116,7 +116,7 @@
                                         echo "echo bg-yellow-100";
                                     } else if ($problem['status'] >= "0" && $problem['status'] <= "19") {
                                         echo "echo bg-red-100";
-                                    } ?>">">
+                                    } ?>">
                     <td class="text-center py-4"><?php echo $problem['raum']; ?></td>
                     <td class="text-center py-4"><b><?php echo $problem['kategorie']; ?></b>
                         <br> <?php echo substr($problem['problembeschreibung'], 0, 1500); ?>
