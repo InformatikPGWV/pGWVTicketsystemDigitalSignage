@@ -51,6 +51,32 @@
 
     // Speichere Anzahl der Fehler
     $fehlerzahl = $result->num_rows;
+
+    function getTranslation($type, $code)
+    {
+        global $conn;
+        $sql = "SELECT * FROM translations WHERE type = ? AND code = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("si", $type, $code);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $data = $result->fetch_assoc();
+        $stmt->close();
+        return $data['text'];
+    }
+
+    function getTranslationDescription($type, $code)
+    {
+        global $conn;
+        $sql = "SELECT * FROM translations WHERE type = ? AND code = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ss", $type, $code);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $data = $result->fetch_assoc();
+        $stmt->close();
+        return $data['description'];
+    }
     ?>
 
 </head>
@@ -77,41 +103,44 @@
                 <th class="text-center py-3" style="width: 15%">Datum</th>
             </tr>
         </thead>
-        <?php
-        $currentId = 0;
-        while ($problem = $result->fetch_assoc()) {
-            //            if($problem['status'] != "Gelöst"){
-        ?>
-            <tbody id="problemTable" class="<?php if ($problem['status'] == "Gelöst") {
-                                                echo "echo bg-green-100";
-                                            } else if ($problem['status'] == "In Bearbeitung") {
-                                                echo "echo bg-yellow-100";
-                                            } else if ($problem['status'] == "Gemeldet") {
-                                                echo "echo bg-red-100";
-                                            } ?>">
-                <tr class="border-b-[0px] border-slate-800 text-sm">
+        <tbody>
+
+            <?php
+            $currentId = 0;
+            while ($problem = $result->fetch_assoc()) {
+                //            if($problem['status'] != "Gelöst"){
+            ?>
+                <tr class="text-sm <?php if ($problem['status'] == "100") {
+                                        echo "echo bg-green-100";
+                                    } else if ($problem['status'] >= "20" && $problem['status'] <= "99") {
+                                        echo "echo bg-yellow-100";
+                                    } else if ($problem['status'] >= "0" && $problem['status'] <= "19") {
+                                        echo "echo bg-red-100";
+                                    } ?>">">
                     <td class="text-center py-4"><?php echo $problem['raum']; ?></td>
                     <td class="text-center py-4"><b><?php echo $problem['kategorie']; ?></b>
                         <br> <?php echo substr($problem['problembeschreibung'], 0, 1500); ?>
                     </td>
-                    <td class="text-center py-4"><?php echo $problem['status']; ?><br></td>
+                    <td class="text-center py-4"><?php echo getTranslation("problemStatus", $problem['status']); ?><br></td>
                     <!-- <td class="text-center py-4"><?php //echo $problem['melder']; S
                                                         ?></td> -->
                     <td class="text-center py-4"><?php echo date("d.m.Y H:i", strtotime($problem['datum'])) . " Uhr"; ?></td>
                 </tr>
+
             <?php
-            $currentId += 1;
-            //            } // If not Gelöst
-        } // DB  LOOP s
+                $currentId += 1;
+                //            } // If not Gelöst
+            } // DB  LOOP s
             ?>
-            </tbody>
+        </tbody>
+
     </table>
 
 
     <!-- Footer -->
     <footer class="fixed w-full bottom-0 left-0">
         <div class="bg-gradient-to-r from-slate-300 to-gray-300 text-xs mt-1 p-2 w-full text-center">
-            <p class="inline">Version: Beta 1.2.0
+            <p class="inline">Version: Beta 1.2.1
                 (<?php echo "Letzte Aktualisierung: " . date("d.m.Y H:i:s", filemtime("index.php")); ?>)</p>
             <p class="inline"> | </p>
             <p class="inline">&#169; 2022 Justus Seeck & Joel Wiedemeier (Jahrgang 12, PGWV)</p>
