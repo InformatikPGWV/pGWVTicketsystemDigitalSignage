@@ -108,7 +108,7 @@
             <?php
             $currentId = 0;
             while ($problem = $result->fetch_assoc()) {
-                //            if($problem['status'] != "Gelöst"){
+                // if($problem['status'] != "Gelöst"){
             ?>
                 <tr class="text-sm <?php if ($problem['status'] == "100") {
                                         echo "echo bg-green-100";
@@ -129,11 +129,10 @@
 
             <?php
                 $currentId += 1;
-                //            } // If not Gelöst
+                // } // If not Gelöst
             } // DB  LOOP s
             ?>
         </tbody>
-
     </table>
 
 
