@@ -103,9 +103,9 @@
     <!-- Footer -->
     <footer class="fixed w-full bottom-0 left-0">
         <div class="bg-gradient-to-r from-slate-300 to-gray-300 text-xs mt-1 p-2 w-full text-center">
-            <p class="inline">Version: Beta 1.1.0 (<?php echo "Letzte Aktualisierung: " . date("d.m.Y H:i:s", filemtime("index.php")); ?>)</h1>
-            <p class="inline"> | </h1>
-            <p class="inline">&#169; 2022 Justus Seeck & Joel Wiedemeier (Jahrgang 12, PGWV)</h1>
+            <p class="inline">Version: Beta 1.1.0 (<?php echo "Letzte Aktualisierung: " . date("d.m.Y H:i:s", filemtime("index.php")); ?>)</p>
+            <p class="inline"> | </p>
+            <p class="inline">&#169; 2022 Justus Seeck & Joel Wiedemeier (Jahrgang 12, PGWV)</p>
         </div>
     </footer>
 
