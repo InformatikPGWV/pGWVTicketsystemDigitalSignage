@@ -57,137 +57,138 @@
 
 <body class="font-sans min-h-screen">
 
-<!-- NAVBAR -->
-<div class="fixed w-full top-0 left-0 text-4xl text-white pl-5 pt-3 pb-5 bg-red-600">
-    <h1 class="w-screen"><b>PGWV Fehlersystem</b><span class="inlineRight font-bold mr-8"><?php echo $fehlerzahl ?> Fehler</span>
-    </h1>
-</div>
-
-<!-- Dummy Element für Abstand -->
-<h1 class="pt-[4.5rem]"></h1>
-
-<!-- TABELLE -->
-<table class="w-full">
-    <thead class="bg-slate-100 text-xs uppercase">
-    <tr>
-        <th class="text-center py-3" style="width: 7.5%">Raum</th>
-        <th class="text-center py-3" style="width: 55%">Fehler</th>
-        <th class="text-center py-3" style="width: 22.5%">Status</th>
-        <!-- <th class="text-center py-3" style="width: 12.5%; max-width: 12.5%;">Melder</th> -->
-        <th class="text-center py-3" style="width: 15%">Datum</th>
-    </tr>
-    </thead>
-    <?php
-    $currentId = 0;
-    while ($problem = $result->fetch_assoc()) {
-    //            if($problem['status'] != "Gelöst"){
-    ?>
-    <tbody id="problemTable" class="<?php if ($problem['status'] == "Gelöst") {
-        echo "echo bg-green-100";
-    } else if ($problem['status'] == "In Bearbeitung") {
-        echo "echo bg-yellow-100";
-    } else if ($problem['status'] == "Gemeldet") {
-        echo "echo bg-red-100";
-    } ?>">
-    <tr class="border-b-[0px] border-slate-800 text-sm">
-        <td class="text-center py-4"><?php echo $problem['raum']; ?></td>
-        <td class="text-center py-4"><b><?php echo $problem['kategorie']; ?></b>
-            <br> <?php echo substr($problem['problembeschreibung'], 0, 1500); ?></td>
-        <td class="text-center py-4"><?php echo $problem['status']; ?><br></td>
-        <!-- <td class="text-center py-4"><?php //echo $problem['melder']; S
-        ?></td> -->
-        <td class="text-center py-4"><?php echo date("d.m.Y H:i", strtotime($problem['datum'])) . " Uhr"; ?></td>
-    </tr>
-    <?php
-    $currentId += 1;
-    //            } // If not Gelöst
-    } // DB  LOOP s
-    ?>
-    </tbody>
-</table>
-
-
-<!-- Footer -->
-<footer class="fixed w-full bottom-0 left-0">
-    <div class="bg-gradient-to-r from-slate-300 to-gray-300 text-xs mt-1 p-2 w-full text-center">
-        <p class="inline">Version: Beta 1.2.0
-            (<?php echo "Letzte Aktualisierung: " . date("d.m.Y H:i:s", filemtime("index.php")); ?>)</p>
-        <p class="inline"> | </p>
-        <p class="inline">&#169; 2022 Justus Seeck & Joel Wiedemeier (Jahrgang 12, PGWV)</p>
+    <!-- NAVBAR -->
+    <div class="fixed w-full top-0 left-0 text-4xl text-white pl-5 pt-3 pb-5 bg-red-600">
+        <h1 class="w-screen"><b>PGWV Fehlersystem</b><span class="inlineRight font-bold mr-8"><?php echo $fehlerzahl ?> Fehler</span>
+        </h1>
     </div>
-</footer>
 
-<div class="py-[16px]"></div>
+    <!-- Dummy Element für Abstand -->
+    <h1 class="pt-[4.5rem]"></h1>
 
-<!-- ============================================================================================================================================== -->
+    <!-- TABELLE -->
+    <table class="w-full">
+        <thead class="bg-slate-100 text-xs uppercase">
+            <tr>
+                <th class="text-center py-3" style="width: 7.5%">Raum</th>
+                <th class="text-center py-3" style="width: 55%">Fehler</th>
+                <th class="text-center py-3" style="width: 22.5%">Status</th>
+                <!-- <th class="text-center py-3" style="width: 12.5%; max-width: 12.5%;">Melder</th> -->
+                <th class="text-center py-3" style="width: 15%">Datum</th>
+            </tr>
+        </thead>
+        <?php
+        $currentId = 0;
+        while ($problem = $result->fetch_assoc()) {
+            //            if($problem['status'] != "Gelöst"){
+        ?>
+            <tbody id="problemTable" class="<?php if ($problem['status'] == "Gelöst") {
+                                                echo "echo bg-green-100";
+                                            } else if ($problem['status'] == "In Bearbeitung") {
+                                                echo "echo bg-yellow-100";
+                                            } else if ($problem['status'] == "Gemeldet") {
+                                                echo "echo bg-red-100";
+                                            } ?>">
+                <tr class="border-b-[0px] border-slate-800 text-sm">
+                    <td class="text-center py-4"><?php echo $problem['raum']; ?></td>
+                    <td class="text-center py-4"><b><?php echo $problem['kategorie']; ?></b>
+                        <br> <?php echo substr($problem['problembeschreibung'], 0, 1500); ?>
+                    </td>
+                    <td class="text-center py-4"><?php echo $problem['status']; ?><br></td>
+                    <!-- <td class="text-center py-4"><?php //echo $problem['melder']; S
+                                                        ?></td> -->
+                    <td class="text-center py-4"><?php echo date("d.m.Y H:i", strtotime($problem['datum'])) . " Uhr"; ?></td>
+                </tr>
+            <?php
+            $currentId += 1;
+            //            } // If not Gelöst
+        } // DB  LOOP s
+            ?>
+            </tbody>
+    </table>
 
-<!-- === JavaScript === -->
-<script>
-    // CONFIGURATION:
-    let enableScrolling = true;
 
-    if (enableScrolling) {
-        $(document).ready(function () {
+    <!-- Footer -->
+    <footer class="fixed w-full bottom-0 left-0">
+        <div class="bg-gradient-to-r from-slate-300 to-gray-300 text-xs mt-1 p-2 w-full text-center">
+            <p class="inline">Version: Beta 1.2.0
+                (<?php echo "Letzte Aktualisierung: " . date("d.m.Y H:i:s", filemtime("index.php")); ?>)</p>
+            <p class="inline"> | </p>
+            <p class="inline">&#169; 2022 Justus Seeck & Joel Wiedemeier (Jahrgang 12, PGWV)</p>
+        </div>
+    </footer>
 
-            var isNotScrolling = true;
-            var ort = 0
+    <div class="py-[16px]"></div>
 
-            function scrollDone() {
-                // alert("Scroll Done")
-                setTimeout(() => {
-                    window.scrollTo({
-                        top: 0,
-                        behavior: "smooth"
-                    });
-                }, 5000);
-                setTimeout(() => {
-                    window.location.reload();
-                }, 6000);
-            }
+    <!-- ============================================================================================================================================== -->
 
-            function scrollDownUntilEndOfPage() {
-                if (isNotScrolling) {
-                    scrollDone();
-                    return
-                } else {
+    <!-- === JavaScript === -->
+    <script>
+        // CONFIGURATION:
+        let enableScrolling = true;
+
+        if (enableScrolling) {
+            $(document).ready(function() {
+
+                var isNotScrolling = true;
+                var ort = 0
+
+                function scrollDone() {
+                    // alert("Scroll Done")
                     setTimeout(() => {
-                        ort += 1
                         window.scrollTo({
-                            top: ort,
-                            behavior: "auto"
+                            top: 0,
+                            behavior: "smooth"
                         });
-                        scrollDownUntilEndOfPage();
-                    }, 12);
+                    }, 5000);
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 6000);
                 }
 
-            }
+                function scrollDownUntilEndOfPage() {
+                    if (isNotScrolling) {
+                        scrollDone();
+                        return
+                    } else {
+                        setTimeout(() => {
+                            ort += 1
+                            window.scrollTo({
+                                top: ort,
+                                behavior: "auto"
+                            });
+                            scrollDownUntilEndOfPage();
+                        }, 12);
+                    }
 
-            // REAGIERT NUR, WENN WIRKLICh GESCROLLT WIRD
-            // TODO: Check einbauen, der reload triggert, auch wenn die seite nicht gescrollt wird
-            window.onscroll = function () {
-                if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
-                    isNotScrolling = true;
-                    // alert("At the bottom!")
                 }
-            }
 
-            // Check if there is no scroll bar
-            // SOURCE: https://stackoverflow.com/a/2146903
-            if ($("body").height() <= $(window).height()) {
-                // alert("NO Vertical Scrollbar! D:");
-                scrollDone();
-            }
+                // REAGIERT NUR, WENN WIRKLICh GESCROLLT WIRD
+                // TODO: Check einbauen, der reload triggert, auch wenn die seite nicht gescrollt wird
+                window.onscroll = function() {
+                    if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+                        isNotScrolling = true;
+                        // alert("At the bottom!")
+                    }
+                }
+
+                // Check if there is no scroll bar
+                // SOURCE: https://stackoverflow.com/a/2146903
+                if ($("body").height() <= $(window).height()) {
+                    // alert("NO Vertical Scrollbar! D:");
+                    scrollDone();
+                }
 
 
-            // ======================================================================================
+                // ======================================================================================
 
-            setTimeout(() => {
-                isNotScrolling = false;
-                scrollDownUntilEndOfPage();
-            }, 4000);
-        });
-    }
-</script>
+                setTimeout(() => {
+                    isNotScrolling = false;
+                    scrollDownUntilEndOfPage();
+                }, 4000);
+            });
+        }
+    </script>
 
 </body>
 
