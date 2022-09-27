@@ -59,40 +59,42 @@
 <body class="font-sans min-h-screen">
 
     <!-- NAVBAR -->
-    <div class="fixed w-full top-0 left-0 z-50 text-4xl text-white pl-5 pt-3 pb-5 bg-gradient-to-r from-red-600 to-red-600">
-        <h1 style="width: 100vw;"><b>PGWV Fehlersystem</b><span class="inlineRight font-bold mr-8"><?php echo $fehlerzahl ?> Fehler</span></h1>
+    <div class="fixed w-full top-0 left-0 text-4xl text-white pl-5 pt-3 pb-5 bg-red-600">
+        <h1 class="w-screen"><b>PGWV Fehlersystem</b><span class="inlineRight font-bold mr-8"><?php echo $fehlerzahl ?> Fehler</span></h1>
     </div>
 
     <!-- Dummy Element für Abstand -->
-    <h1 class="pt-20"></h1>
+    <h1 class="pt-[4.5rem]"></h1>
 
     <!-- TABELLE -->
-    <table class="table w-full z-1">
-        <thead>
+    <table class="w-full">
+        <thead class="bg-slate-100 text-xs uppercase">
             <tr>
-                <th class="text-center z-1" style="width: 7.5%; max-width: 7.5%;">Raum</th>
-                <th class="text-center z-1" style="width: 55%; max-width: 55%;">Fehler</th>
-                <th class="text-center z-1" style="width: 22.5%; max-width: 22.5%;">Status</th>
-                <!-- <th class="text-center z-1" style="width: 12.5%; max-width: 12.5%;">Melder</th> -->
-                <th class="text-center z-1" style="width: 15%; max-width: 15%;">Datum</th>
+                <th class="text-center py-3" style="width: 7.5%">Raum</th>
+                <th class="text-center py-3" style="width: 55%">Fehler</th>
+                <th class="text-center py-3" style="width: 22.5%">Status</th>
+                <!-- <th class="text-center py-3" style="width: 12.5%; max-width: 12.5%;">Melder</th> -->
+                <th class="text-center py-3" style="width: 15%">Datum</th>
             </tr>
         </thead>
-        <tbody id="problemTable">
             <?php
             $currentId = 0;
             while ($problem = $result->fetch_assoc()) {
+//            if($problem['status'] != "Gelöst"){
             ?>
-                <tr>
-                    <td class="text-center"><?php echo $problem['raum']; ?></td>
-                    <td class="text-center"><b><?php echo $problem['kategorie']; ?></b> <br> <?php echo substr($problem['problembeschreibung'], 0, 130); ?></td>
-                    <td class="text-center"><?php echo $problem['status']; ?><br></td>
-                    <!-- <td class="text-center"><?php //echo $problem['melder']; S
+        <tbody id="problemTable" class="<?php if($problem['status'] == "Gelöst"){echo "echo bg-green-100";}else if($problem['status'] == "In Bearbeitung"){echo "echo bg-yellow-100";}else if($problem['status'] == "Gemeldet"){echo "echo bg-red-100";}?>">
+                <tr class="border-b-[0px] border-slate-800 text-sm">
+                    <td class="text-center py-4"><?php echo $problem['raum']; ?></td>
+                    <td class="text-center py-4"><b><?php echo $problem['kategorie']; ?></b> <br> <?php echo substr($problem['problembeschreibung'], 0, 1300); ?></td>
+                    <td class="text-center py-4"><?php echo $problem['status']; ?><br></td>
+                    <!-- <td class="text-center py-4"><?php //echo $problem['melder']; S
                                                     ?></td> -->
-                    <td class="text-center"><?php echo $problem['datum']; ?></td>
+                    <td class="text-center py-4"><?php echo $problem['datum']; ?></td>
                 </tr>
             <?php
                 $currentId += 1;
-            } // DB  LOOP 
+//            } // If not Gelöst
+            } // DB  LOOP s
             ?>
         </tbody>
     </table>
@@ -101,20 +103,20 @@
     <!-- Footer -->
     <footer class="fixed w-full bottom-0 left-0">
         <div class="bg-gradient-to-r from-slate-300 to-gray-300 text-xs mt-1 p-2 w-full text-center">
-            <p class="inline">Version: Beta 1.0.1 (<?php echo "Letzte Aktualisierung: " . date("d.m.Y H:i:s", filemtime("index.php")); ?>)</h1>
+            <p class="inline">Version: Beta 1.1.0 (<?php echo "Letzte Aktualisierung: " . date("d.m.Y H:i:s", filemtime("index.php")); ?>)</h1>
             <p class="inline"> | </h1>
             <p class="inline">&#169; 2022 Justus Seeck & Joel Wiedemeier (Jahrgang 12, PGWV)</h1>
         </div>
     </footer>
 
-    <div class="py-3"></div>
+    <div class="py-[16px]"></div>
 
     <!-- ============================================================================================================================================== -->
 
     <!-- === JavaScript === -->
     <script>
         // CONFIGURATION:
-        let enableScrolling = true;
+        let enableScrolling = false;
 
         if (enableScrolling) {
             $(document).ready(function() {
@@ -174,7 +176,7 @@
                 setTimeout(() => {
                     isNotScrolling = false;
                     scrollDownUntilEndOfPage();
-                }, 5000);
+                }, 4000);
             });
         }
     </script>
