@@ -77,26 +77,32 @@
                 <th class="text-center py-3" style="width: 15%">Datum</th>
             </tr>
         </thead>
-            <?php
-            $currentId = 0;
-            while ($problem = $result->fetch_assoc()) {
-//            if($problem['status'] != "Gelöst"){
-            ?>
-        <tbody id="problemTable" class="<?php if($problem['status'] == "Gelöst"){echo "echo bg-green-100";}else if($problem['status'] == "In Bearbeitung"){echo "echo bg-yellow-100";}else if($problem['status'] == "Gemeldet"){echo "echo bg-red-100";}?>">
+        <?php
+        $currentId = 0;
+        while ($problem = $result->fetch_assoc()) {
+            //            if($problem['status'] != "Gelöst"){
+        ?>
+            <tbody id="problemTable" class="<?php if ($problem['status'] == "Gelöst") {
+                                                echo "echo bg-green-100";
+                                            } else if ($problem['status'] == "In Bearbeitung") {
+                                                echo "echo bg-yellow-100";
+                                            } else if ($problem['status'] == "Gemeldet") {
+                                                echo "echo bg-red-100";
+                                            } ?>">
                 <tr class="border-b-[0px] border-slate-800 text-sm">
                     <td class="text-center py-4"><?php echo $problem['raum']; ?></td>
-                    <td class="text-center py-4"><b><?php echo $problem['kategorie']; ?></b> <br> <?php echo substr($problem['problembeschreibung'], 0, 1300); ?></td>
+                    <td class="text-center py-4"><b><?php echo $problem['kategorie']; ?></b> <br> <?php echo substr($problem['problembeschreibung'], 0, 1500); ?></td>
                     <td class="text-center py-4"><?php echo $problem['status']; ?><br></td>
                     <!-- <td class="text-center py-4"><?php //echo $problem['melder']; S
-                                                    ?></td> -->
+                                                        ?></td> -->
                     <td class="text-center py-4"><?php echo $problem['datum']; ?></td>
                 </tr>
             <?php
-                $currentId += 1;
-//            } // If not Gelöst
-            } // DB  LOOP s
+            $currentId += 1;
+            //            } // If not Gelöst
+        } // DB  LOOP s
             ?>
-        </tbody>
+            </tbody>
     </table>
 
 
@@ -116,7 +122,7 @@
     <!-- === JavaScript === -->
     <script>
         // CONFIGURATION:
-        let enableScrolling = false;
+        let enableScrolling = true;
 
         if (enableScrolling) {
             $(document).ready(function() {
