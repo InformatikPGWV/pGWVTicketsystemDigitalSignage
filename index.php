@@ -32,7 +32,7 @@
     <script src="./scripts/jQuery-3.6.6.js"></script>
 
     <!-- === RELOAD === -->
-    <meta http-equiv="refresh" content="1800; url=#">
+    <meta http-equiv="refresh" content="9000; url=#">
 
     <!-- === PHP === -->
     <?php
