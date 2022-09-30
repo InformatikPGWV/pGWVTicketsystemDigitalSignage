@@ -85,11 +85,10 @@
 
     <!-- NAVBAR -->
     <div class="fixed w-full top-0 left-0 text-4xl text-white pl-5 pt-3 pb-5 bg-red-600">
-        <h1 class="w-screen"><b>PGWV Fehlersystem</b><span class="inlineRight font-bold mr-8"><?php echo $fehlerzahl ?> Fehler</span>
+        <h1 class="w-screen"><b>PGWV Fehlerportal</b><span class="inlineRight font-bold mr-8"><?php echo $fehlerzahl ?> Fehler</span>
         </h1>
     </div>
 
-    <!-- Dummy Element für Abstand -->
     <h1 class="pt-[4.5rem]"></h1>
 
     <!-- TABELLE -->
@@ -118,7 +117,7 @@
                                         echo "echo bg-red-100";
                                     } ?>">
                     <td class="text-center py-4"><?php echo $problem['raum']; ?></td>
-                    <td class="text-center py-4"><b><?php echo $problem['kategorie']; ?></b>
+                    <td class="text-center py-4"><b><?php echo getTranslation("problemType", $problem['kategorie']); ?></b>
                         <br> <?php echo substr($problem['problembeschreibung'], 0, 1500); ?>
                     </td>
                     <td class="text-center py-4"><?php echo getTranslation("problemStatus", $problem['status']); ?><br></td>
