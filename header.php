@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- <html lang="de" data-theme="dark"> -->
+<html lang="de" data-theme="light">
 
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>PGWV Fehlersystem</title>
 
     <!-- === CSS === -->
     <link rel="stylesheet" href="./styles/indexOutput.css">
@@ -13,6 +16,8 @@
     <!-- === JQuery (https://releases.jquery.com) === -->
     <script src="./scripts/jQuery-3.6.6.js"></script>
 
+    <!-- === RELOAD === -->
+    <meta http-equiv="refresh" content="5; url=#">
 
     <!-- === PHP === -->
     <?php
@@ -33,25 +38,17 @@
     // Speichere Anzahl der Fehler
     $fehlerzahl = $result->num_rows;
     ?>
+
 </head>
 
-<body class="h-screen">
+<body class="font-sans min-w-screen">
 
-    <!-- TABLE -->
-    <iframe class="w-full h-[96.5vh]" src="./table.php" frameborder="0"></iframe>
-
-
-    <!-- Footer -->
-    <footer class="w-full h-[3.5vh] m-0 p-0">
-        <div class="bg-gradient-to-r from-slate-300 to-gray-300 text-xs mt-1 p-2 w-full h-full text-center">
-            <p class="inline">Version: Beta 1.2.1
-                (
-                <?php echo "Letzte Aktualisierung: " . date("d.m.Y H:i:s", filemtime("index.php")); ?>)
-            </p>
-            <p class="inline"> | </p>
-            <p class="inline">&#169; 2022 Justus Seeck & Joel Wiedemeier (Jahrgang 12, PGWV)</p>
+    <!-- HEADER -->
+    <header>
+        <div class="w-full text-4xl text-white pl-5 pt-3 pb-5 bg-red-600">
+            <h1 class="w-screen"><b>PGWV Fehlerportal</b><span class="inlineRight font-bold mr-8"><?php echo $fehlerzahl ?> Fehler</span></h1>
         </div>
-    </footer>
+    </header>   
 </body>
 
 </html>

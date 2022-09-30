@@ -74,3 +74,7 @@ body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+#tableFrame {
+  height: calc(100vh - 72px - 35px);
+}
