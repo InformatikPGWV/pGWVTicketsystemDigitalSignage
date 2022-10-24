@@ -1,6 +1,3 @@
-# pGWVTicketsystemDigitalSignage
+# 🚨 DEPRECATED 🚨
 
-Zum Installieren:
-
-- npm install
-- composer update
+## We moved to [astroTLIS](https://github.com/InformatikPGWV/astroTLIS)
