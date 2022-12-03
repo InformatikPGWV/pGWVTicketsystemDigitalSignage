@@ -44,7 +44,7 @@
     // Lade Daten aus der Datenbank herunter
     $conn = mysqli_connect(getenv("TLIS1_HOSTNAME"), getenv("TLIS1_USERNAME"), getenv("TLIS1_PASSWORD"), getenv("TLIS1_DATABASE"));
 
-    $sql = "SELECT * FROM problems WHERE 'status' != 'Gelöst' AND 'status' != 'Spam' ORDER BY raum ASC";
+    $sql = "SELECT * FROM problems WHERE (`last_update` > now() - INTERVAL 7 day OR (`status` >= 10 AND `status` <= 99)) ORDER BY raum ASC";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $result = $stmt->get_result();
