@@ -567,40 +567,36 @@ video {
   bottom: 0px;
 }
 
-.m-0 {
-  margin: 0px;
+.mr-8 {
+  margin-right: 2rem;
 }
 
 .mt-1 {
   margin-top: 0.25rem;
 }
 
-.mr-8 {
-  margin-right: 2rem;
+.mr-2 {
+  margin-right: 0.5rem;
 }
 
 .inline {
   display: inline;
 }
 
+.flex {
+  display: flex;
+}
+
 .table {
   display: table;
 }
 
-.h-screen {
-  height: 100vh;
+.h-4 {
+  height: 1rem;
 }
 
-.h-\[96\.5vh\] {
-  height: 96.5vh;
-}
-
-.h-\[3\.5vh\] {
-  height: 3.5vh;
-}
-
-.h-full {
-  height: 100%;
+.h-20 {
+  height: 5rem;
 }
 
 .min-h-screen {
@@ -613,6 +609,10 @@ video {
 
 .w-screen {
   width: 100vw;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .bg-red-600 {
@@ -640,8 +640,23 @@ video {
   background-color: rgb(254 226 226 / var(--tw-bg-opacity));
 }
 
+.bg-slate-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(15 23 42 / var(--tw-bg-opacity));
+}
+
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+
+.bg-\[url\(\'https\:\/\/getwallpapers\.com\/wallpaper\/full\/8\/7\/4\/979125-free-stars-desktop-backgrounds-1920x1080-lockscreen\.jpg\'\)\] {
+  background-image: url('https://getwallpapers.com/wallpaper/full/8/7/4/979125-free-stars-desktop-backgrounds-1920x1080-lockscreen.jpg');
+}
+
+.from-\[\#0f0c29\] {
+  --tw-gradient-from: #0f0c29;
+  --tw-gradient-to: rgb(15 12 41 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
 .from-slate-300 {
@@ -650,12 +665,25 @@ video {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.via-\[\#302b63\] {
+  --tw-gradient-to: rgb(48 43 99 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), #302b63, var(--tw-gradient-to);
+}
+
+.to-\[\#24243e\] {
+  --tw-gradient-to: #24243e;
+}
+
 .to-gray-300 {
   --tw-gradient-to: #d1d5db;
 }
 
-.p-0 {
-  padding: 0px;
+.bg-cover {
+  background-size: cover;
+}
+
+.bg-no-repeat {
+  background-repeat: no-repeat;
 }
 
 .p-2 {
@@ -693,6 +721,18 @@ video {
   padding-top: 4.5rem;
 }
 
+.pt-24 {
+  padding-top: 6rem;
+}
+
+.pt-8 {
+  padding-top: 2rem;
+}
+
+.pt-36 {
+  padding-top: 9rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -701,14 +741,14 @@ video {
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-.text-xs {
-  font-size: 0.75rem;
-  line-height: 1rem;
-}
-
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 
 .text-sm {
@@ -716,8 +756,22 @@ video {
   line-height: 1.25rem;
 }
 
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
 .font-bold {
   font-weight: 700;
+}
+
+.font-semibold {
+  font-weight: 600;
 }
 
 .uppercase {
@@ -727,6 +781,18 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.backdrop-blur-sm {
+  --tw-backdrop-blur: blur(4px);
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+          backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+}
+
+.backdrop-brightness-50 {
+  --tw-backdrop-brightness: brightness(.5);
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+          backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
 
 /*@keyframes blink {*/

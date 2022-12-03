@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- <html lang="de" data-theme="dark"> -->
 <html lang="de" data-theme="light">
 
 <head>
@@ -83,8 +82,10 @@
 
 <body class="font-sans min-h-screen">
 
+
+
     <!-- NAVBAR -->
-    <div class="fixed w-full top-0 left-0 text-4xl text-white pl-5 pt-3 pb-5 bg-red-600">
+    <div class="fixed w-full top-0 left-0 text-4xl text-white pl-5 pt-3 pb-5 bg-gradient-to-r from-[#0f0c29] via-[#302b63] to-[#24243e]">
         <h1 class="w-screen"><b>PGWV Fehlerportal</b><span class="inlineRight font-bold mr-8"><?php echo $fehlerzahl ?> Fehler</span>
         </h1>
     </div>
@@ -136,13 +137,31 @@
 
 
     <!-- Footer -->
-    <footer class="fixed w-full bottom-0 left-0">
+    <!-- <footer class="fixed w-full bottom-0 left-0">
         <div class="bg-gradient-to-r from-slate-300 to-gray-300 text-xs mt-1 p-2 w-full text-center">
             <p class="inline">Version: Beta 1.2.1
                 (<?php echo "Letzte Aktualisierung: " . date("d.m.Y H:i:s", filemtime("index.php")); ?>)</p>
             <p class="inline"> | </p>
             <p class="inline">&#169; 2022 Justus Seeck & Joel Wiedemeier (Jahrgang 12, PGWV)</p>
         </div>
+    </footer> -->
+
+
+    <footer class="fixed w-full bottom-0 left-0">
+    <div
+        class="bg-gradient-to-r from-[#0f0c29] via-[#302b63] to-[#24243e] text-white text-xs mt-1 p-2 w-full text-center"
+    >
+        <p class="inline"><?php echo "Letzte Aktualisierung: " . date("d.m.Y H:i:s", filemtime("index.php")); ?></p>
+        <p class="inline">|</p>
+        <p class="inline">
+        &#169; 2022 Justus Seeck & Joel Wiedemeier (Jahrgang 12, PGWV)
+        </p>
+        <img
+        class="inlineRight h-4 mr-2"
+        src="https://skillicons.dev/icons?i=astro,html,css,javascript"
+        alt="Astro, HTML, CSS, JavaScript"
+        />
+    </div>
     </footer>
 
     <div class="py-[16px]"></div>
