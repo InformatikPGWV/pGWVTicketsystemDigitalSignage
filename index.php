@@ -111,7 +111,6 @@
             <?php
             $currentId = 0;
             while ($problem = $result->fetch_assoc()) {
-                // if($problem['status'] != "Gelöst"){
             ?>
             <tr class="text-sm <?php if ($problem['status'] == "100") {
                     echo "echo bg-green-100";
@@ -133,7 +132,7 @@
                     <?php echo getTranslation("problemStatus", $problem['status']); ?><br>
                 </td>
                 <!-- <td class="text-center py-4"><?php //echo $problem['melder']; S
-                    ?></td> -->
+                ?></td> -->
                 <td class="text-center py-4">
                     <?php echo date("d.m.Y H:i", strtotime($problem['datum'])) . " Uhr"; ?>
                 </td>
@@ -141,8 +140,7 @@
 
             <?php
                 $currentId += 1;
-                // } // If not Gelöst
-            } // DB  LOOP s
+            } // DB  LOOP
             ?>
         </tbody>
     </table>
