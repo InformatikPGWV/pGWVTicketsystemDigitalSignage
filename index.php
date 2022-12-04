@@ -35,7 +35,7 @@
     <!-- === PHP === -->
     <?php
     // Install Dependencies: https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies
-
+    
     require "vendor/autoload.php";
     $dotenv = Dotenv\Dotenv::createUnsafeImmutable(__DIR__);
     $dotenv->load();
@@ -85,8 +85,11 @@
 
 
     <!-- NAVBAR -->
-    <div class="fixed w-full top-0 left-0 text-4xl text-white pl-5 pt-3 pb-5 bg-gradient-to-r from-[#0f0c29] via-[#302b63] to-[#24243e]">
-        <h1 class="w-screen"><b>PGWV Fehlerportal</b><span class="inlineRight font-bold mr-8"><?php echo $fehlerzahl ?> Fehler</span>
+    <div
+        class="fixed w-full top-0 left-0 text-4xl text-white pl-5 pt-3 pb-5 bg-gradient-to-r from-[#0f0c29] via-[#302b63] to-[#24243e]">
+        <h1 class="w-screen"><b>PGWV Fehlerportal</b><span class="inlineRight font-bold mr-8">
+                <?php echo $fehlerzahl ?> Fehler
+            </span>
         </h1>
     </div>
 
@@ -110,22 +113,31 @@
             while ($problem = $result->fetch_assoc()) {
                 // if($problem['status'] != "Gelöst"){
             ?>
-                <tr class="text-sm <?php if ($problem['status'] == "100") {
-                                        echo "echo bg-green-100";
-                                    } else if ($problem['status'] >= "20" && $problem['status'] <= "99") {
-                                        echo "echo bg-yellow-100";
-                                    } else if ($problem['status'] >= "0" && $problem['status'] <= "19") {
-                                        echo "echo bg-red-100";
-                                    } ?>">
-                    <td class="text-center py-4"><?php echo $problem['raum']; ?></td>
-                    <td class="text-center py-4"><b><?php echo getTranslation("problemType", $problem['kategorie']); ?></b>
-                        <br> <?php echo substr($problem['problembeschreibung'], 0, 1500); ?>
-                    </td>
-                    <td class="text-center py-4"><?php echo getTranslation("problemStatus", $problem['status']); ?><br></td>
-                    <!-- <td class="text-center py-4"><?php //echo $problem['melder']; S
-                                                        ?></td> -->
-                    <td class="text-center py-4"><?php echo date("d.m.Y H:i", strtotime($problem['datum'])) . " Uhr"; ?></td>
-                </tr>
+            <tr class="text-sm <?php if ($problem['status'] == "100") {
+                    echo "echo bg-green-100";
+                } else if ($problem['status'] >= "20" && $problem['status'] <= "99") {
+                    echo "echo bg-yellow-100";
+                } else if ($problem['status'] >= "0" && $problem['status'] <= "19") {
+                    echo "echo bg-red-100";
+                } ?>">
+                <td class="text-center py-4">
+                    <?php echo $problem['raum']; ?>
+                </td>
+                <td class="text-center py-4"><b>
+                        <?php echo getTranslation("problemType", $problem['kategorie']); ?>
+                    </b>
+                    <br>
+                    <?php echo substr($problem['problembeschreibung'], 0, 1500); ?>
+                </td>
+                <td class="text-center py-4">
+                    <?php echo getTranslation("problemStatus", $problem['status']); ?><br>
+                </td>
+                <!-- <td class="text-center py-4"><?php //echo $problem['melder']; S
+                    ?></td> -->
+                <td class="text-center py-4">
+                    <?php echo date("d.m.Y H:i", strtotime($problem['datum'])) . " Uhr"; ?>
+                </td>
+            </tr>
 
             <?php
                 $currentId += 1;
@@ -148,20 +160,18 @@
 
 
     <footer class="fixed w-full bottom-0 left-0">
-    <div
-        class="bg-gradient-to-r from-[#0f0c29] via-[#302b63] to-[#24243e] text-white text-xs mt-1 p-2 w-full text-center"
-    >
-        <p class="inline"><?php echo "Letzte Aktualisierung: " . date("d.m.Y H:i:s", filemtime("index.php")); ?></p>
-        <p class="inline">|</p>
-        <p class="inline">
-        &#169; 2022 Justus Seeck & Joel Wiedemeier (Jahrgang 12, PGWV)
-        </p>
-        <img
-        class="inlineRight h-4 mr-2"
-        src="https://skillicons.dev/icons?i=astro,html,css,javascript"
-        alt="Astro, HTML, CSS, JavaScript"
-        />
-    </div>
+        <div
+            class="bg-gradient-to-r from-[#0f0c29] via-[#302b63] to-[#24243e] text-white text-xs mt-1 p-2 w-full text-center">
+            <p class="inline">
+                <?php echo "Letzte Aktualisierung: " . date("d.m.Y H:i:s", filemtime("index.php")); ?>
+            </p>
+            <p class="inline">|</p>
+            <p class="inline">
+                &#169; 2022 Justus Seeck & Joel Wiedemeier (Jahrgang 12, PGWV)
+            </p>
+            <img class="inlineRight h-4 mr-2" src="https://skillicons.dev/icons?i=html,css,php,javascript"
+                alt="Astro, HTML, CSS, JavaScript" />
+        </div>
     </footer>
 
     <div class="py-[16px]"></div>
@@ -174,7 +184,7 @@
         let enableScrolling = true;
 
         if (enableScrolling) {
-            $(document).ready(function() {
+            $(document).ready(function () {
 
                 var isNotScrolling = true;
                 var ort = 0
@@ -211,7 +221,7 @@
 
                 // REAGIERT NUR, WENN WIRKLICh GESCROLLT WIRD
                 // TODO: Check einbauen, der reload triggert, auch wenn die seite nicht gescrollt wird
-                window.onscroll = function() {
+                window.onscroll = function () {
                     if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
                         isNotScrolling = true;
                         // alert("At the bottom!")
